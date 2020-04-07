@@ -13,7 +13,7 @@ class Book extends React.Component {
                     <div className="book-shelf-changer">
                         <select>
                             <option value="move" disabled>Move to...</option>
-                            { this.props.categories.map( category => <option value={ category.value }>{ category.title }</option>) }
+                            { this.props.shelfes.map( shelf => <option value={ shelf.value }>{ shelf.title }</option>) }
                             <option value="none">None</option>
                         </select>
                     </div>

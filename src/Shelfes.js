@@ -2,7 +2,7 @@ import React from 'react'
 import BooksList from "./BooksList"
 import Link from "react-router-dom/Link";
 
-class Categories extends React.Component {
+class Shelfes extends React.Component {
     render() {
         return (
             <div className="list-books">
@@ -11,13 +11,13 @@ class Categories extends React.Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        { this.props.categories.map( category => (
+                        { this.props.shelfes.map( shelf => (
                             <div className="bookshelf">
-                                <h2 className="bookshelf-title">{ category.title }</h2>
+                                <h2 className="bookshelf-title">{ shelf.title }</h2>
                                 <div className="bookshelf-books">
                                     <BooksList
-                                        categories={ this.props.categories }
-                                        books={ this.props.books.filter( book => book.shelf===category.value ) }
+                                        shelfes={ this.props.shelfes }
+                                        books={ this.props.books.filter( book => book.shelf===shelf.value ) }
                                     />
                                 </div>
                             </div>
@@ -32,4 +32,4 @@ class Categories extends React.Component {
     }
 }
 
-export default Categories
+export default Shelfes

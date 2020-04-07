@@ -8,7 +8,7 @@ class BooksList extends React.Component {
                 { this.props.books.map( book =>
                     <li>
                         <Book
-                            categories={ this.props.categories }
+                            shelfes={ this.props.shelfes }
                             book={ book }
                         />
                     </li>
