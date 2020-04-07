@@ -5,6 +5,7 @@ import Link from "react-router-dom/Link";
 class Search extends React.Component {
     state = {
         searchInput: '',
+        results: [],
     };
 
     updateSearch = (query) => {
@@ -31,11 +32,10 @@ class Search extends React.Component {
                             value={ this.state.searchInput }
                             onChange={(e)=>this.updateSearch(e.target.value)}
                         />
-
                     </div>
                 </div>
                 <div className="search-books-results">
-                    <BooksList />
+                    <BooksList books={ this.state.results } shelfes={ this.props.shelfes } />
                 </div>
             </div>
         )
