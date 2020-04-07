@@ -5,12 +5,14 @@ class BooksList extends React.Component {
     render() {
         return (
             <ol className="books-grid">
-                <li>
-                    <Book />
-                </li>
-                <li>
-                    <Book />
-                </li>
+                { this.props.books.map( book =>
+                    <li>
+                        <Book
+                            categories={ this.props.categories }
+                            book={ book }
+                        />
+                    </li>
+                ) }
             </ol>
         )
     }

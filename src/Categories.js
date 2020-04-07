@@ -11,24 +11,17 @@ class Categories extends React.Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        <div className="bookshelf">
-                            <h2 className="bookshelf-title">Currently Reading</h2>
-                            <div className="bookshelf-books">
-                                <BooksList />
+                        { this.props.categories.map( category => (
+                            <div className="bookshelf">
+                                <h2 className="bookshelf-title">{ category.title }</h2>
+                                <div className="bookshelf-books">
+                                    <BooksList
+                                        categories={ this.props.categories }
+                                        books={ this.props.books.filter( book => book.shelf===category.value ) }
+                                    />
+                                </div>
                             </div>
-                        </div>
-                        <div className="bookshelf">
-                            <h2 className="bookshelf-title">Want to Read</h2>
-                            <div className="bookshelf-books">
-                                <BooksList />
-                            </div>
-                        </div>
-                        <div className="bookshelf">
-                            <h2 className="bookshelf-title">Read</h2>
-                            <div className="bookshelf-books">
-                                <BooksList />
-                            </div>
-                        </div>
+                        )) }
                     </div>
                 </div>
                 <div className="open-search">
