@@ -1,6 +1,6 @@
 import React from 'react'
-import BooksList from "./BooksList";
-import { Link } from "react-router-dom"
+import BooksList from './BooksList'
+import {Link} from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 
 class Search extends React.Component {
@@ -10,16 +10,16 @@ class Search extends React.Component {
     };
 
     updateSearch = (query) => {
-        this.setState({ searchInput: query.trim() });
+        this.setState({searchInput: query.trim()});
         BooksAPI.search(query).then((response) => {
             let books = (!response || response.error)
                 ? []
                 : response;
-            books = books.map( book => {
-                const bookInShelf = this.props.books.filter( bookInShelf => book.id===bookInShelf.id );
-                return (bookInShelf && bookInShelf.length>0)?bookInShelf[0]:book;
+            books = books.map(book => {
+                const bookInShelf = this.props.books.filter(bookInShelf => book.id === bookInShelf.id);
+                return (bookInShelf && bookInShelf.length > 0) ? bookInShelf[0] : book;
             });
-            this.setState({ results: books })
+            this.setState({results: books})
         });
     };
 
@@ -32,16 +32,16 @@ class Search extends React.Component {
                         <input
                             type="text"
                             placeholder="Search by title or author"
-                            value={ this.state.searchInput }
-                            onChange={(e)=>this.updateSearch(e.target.value)}
+                            value={this.state.searchInput}
+                            onChange={(e) => this.updateSearch(e.target.value)}
                         />
                     </div>
                 </div>
                 <div className="search-books-results">
                     <BooksList
-                        books={ this.state.results }
-                        shelfes={ this.props.shelfes }
-                        onBookUpdate={ this.props.onBookUpdate }
+                        books={this.state.results}
+                        shelves={this.props.shelves}
+                        onBookUpdate={this.props.onBookUpdate}
                     />
                 </div>
             </div>
