@@ -38,7 +38,11 @@ class Search extends React.Component {
                     </div>
                 </div>
                 <div className="search-books-results">
-                    <BooksList books={ this.state.results } shelfes={ this.props.shelfes } />
+                    <BooksList
+                        books={ this.state.results }
+                        shelfes={ this.props.shelfes }
+                        onBookUpdate={ this.props.onBookUpdate }
+                    />
                 </div>
             </div>
         )

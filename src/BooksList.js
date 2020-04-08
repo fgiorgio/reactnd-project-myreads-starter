@@ -10,6 +10,7 @@ class BooksList extends React.Component {
                         <Book
                             shelfes={ this.props.shelfes }
                             book={ book }
+                            onBookUpdate={ this.props.onBookUpdate }
                         />
                     </li>
                 ) }

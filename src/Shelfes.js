@@ -18,6 +18,7 @@ class Shelfes extends React.Component {
                                     <BooksList
                                         shelfes={ this.props.shelfes }
                                         books={ this.props.books.filter( book => book.shelf===shelf.value ) }
+                                        onBookUpdate={ this.props.onBookUpdate }
                                     />
                                 </div>
                             </div>
