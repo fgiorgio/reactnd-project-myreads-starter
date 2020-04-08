@@ -11,8 +11,14 @@ class Search extends React.Component {
 
     updateSearch = (query) => {
         this.setState({ searchInput: query.trim() });
-        BooksAPI.search(query).then((books) => {
-            books = (!books || books.error) ? [] : books;
+        BooksAPI.search(query).then((response) => {
+            let books = (!response || response.error)
+                ? []
+                : response;
+            books = books.map( book => {
+                const bookInShelf = this.props.books.filter( bookInShelf => book.id===bookInShelf.id );
+                return (bookInShelf && bookInShelf.length>0)?bookInShelf[0]:book;
+            });
             this.setState({ results: books })
         });
     };

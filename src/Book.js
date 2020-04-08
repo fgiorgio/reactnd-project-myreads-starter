@@ -16,7 +16,7 @@ class Book extends React.Component {
                     >
                     </div>
                     <div className="book-shelf-changer">
-                        <select defaultValue="none" value={ shelf }>
+                        <select defaultValue={ shelf || 'none' }>
                             <option value="move" disabled>Move to...</option>
                             { this.props.shelfes.map( shelf => (
                                 <option key={ shelf.value } value={ shelf.value } >{ shelf.title }</option>
