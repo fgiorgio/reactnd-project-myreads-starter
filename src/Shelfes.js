@@ -1,6 +1,6 @@
 import React from 'react'
 import BooksList from "./BooksList"
-import Link from "react-router-dom/Link";
+import { Link } from "react-router-dom"
 
 class Shelfes extends React.Component {
     render() {
@@ -12,7 +12,7 @@ class Shelfes extends React.Component {
                 <div className="list-books-content">
                     <div>
                         { this.props.shelfes.map( shelf => (
-                            <div className="bookshelf">
+                            <div className="bookshelf" key={ shelf.value }>
                                 <h2 className="bookshelf-title">{ shelf.title }</h2>
                                 <div className="bookshelf-books">
                                     <BooksList

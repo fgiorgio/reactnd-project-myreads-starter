@@ -1,6 +1,7 @@
 import React from 'react'
 import BooksList from "./BooksList";
-import Link from "react-router-dom/Link";
+import { Link } from "react-router-dom"
+import * as BooksAPI from './BooksAPI'
 
 class Search extends React.Component {
     state = {
